@@ -6,8 +6,8 @@ beeled = LED(pin_no)
 
 lightgate = Button(pin_no)
 
-sunbutton = Button(pin_no)
-sunled = LED(pin_no)
+sunbutton = Button(21)
+sunled = LED(20)
     
 
 def watch_bee():
@@ -15,6 +15,7 @@ def watch_bee():
     while not shutdown:
         if beebutton_pressed:
             solved_bee = True
+            print('bee is solved')
             beeled.on()
     close thread
     
@@ -25,6 +26,7 @@ def watch_rain():
             if lightgate_pressed:
                 count += 1
         solved_rain = True
+        print('rain is solved')
         falling = True
         while falling:
             falling_rain business
@@ -38,9 +40,11 @@ def watch_sun():
         if state = 1:
             sunled.on()
             solved_sun = True
+            print('sun is solved')
         if state = 0:
             sunled.off()
             solved_sun = False
+            print('sun is unsolved')
     close thread
 
 def reset():
