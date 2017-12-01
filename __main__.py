@@ -11,6 +11,12 @@ sunbutton = Button(21)
 sunled = LED(20)
 
 shutdown = False
+solved_bee = False
+solved_rain = False
+solved_sun = False
+count = 0
+state = 0
+falling = False
 
 
 def watch_bee():
