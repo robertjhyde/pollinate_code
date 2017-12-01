@@ -71,7 +71,7 @@ thread1 = Thread(target = watch_bee, args = ())
 thread2 = Thread(target = watch_rain, args = ())
 thread3 = Thread(target = watch_sun, args = ())
 
-    
+reset()    
 while True:
     if solved_bee and solved_rain and solved_sun:
         flower()
