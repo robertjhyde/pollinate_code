@@ -17,7 +17,7 @@ def watch_bee():
             solved_bee = True
             print('bee is solved')
             beeled.on()
-    close thread
+    thread.exit()
     
 def watch_rain():
     global solved_rain, count, falling
@@ -30,7 +30,7 @@ def watch_rain():
         falling = True
         while falling:
             falling_rain business
-    close thread
+    thread.exit()
 
 def watch_sun():
     global solved_sun, state
@@ -45,7 +45,7 @@ def watch_sun():
             sunled.off()
             solved_sun = False
             print('sun is unsolved')
-    close thread
+    thread.exit()
 
 def reset():
     global solved_bee, solved_rain, solved_sun, count, state, falling
