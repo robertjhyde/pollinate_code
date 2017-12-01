@@ -11,11 +11,6 @@ sunbutton = Button(21)
 sunled = LED(20)
 
 
-thread1 = Thread(target = watch_bee, args = ())
-thread2 = Thread(target = watch_rain, args = ())
-thread3 = Thread(target = watch_sun, args = ())
-    
-
 def watch_bee():
     global solved_bee
     while not shutdown:
@@ -70,6 +65,11 @@ def reset():
     thread1.start()
     thread2.start()
     thread3.start()
+
+    
+thread1 = Thread(target = watch_bee, args = ())
+thread2 = Thread(target = watch_rain, args = ())
+thread3 = Thread(target = watch_sun, args = ())
 
     
 while True:
