@@ -2,10 +2,10 @@ from time import sleep
 from gpiozero import Button, LED
 from threading import Thread
 
-beebutton = Button(pin_no)
-beeled = LED(pin_no)
+beebutton = Button(26)
+beeled = LED(19)
 
-lightgate = Button(pin_no)
+lightgate = Button(16)
 
 sunbutton = Button(21)
 sunled = LED(20)
