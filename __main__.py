@@ -10,6 +10,8 @@ lightgate = Button(16)
 sunbutton = Button(21)
 sunled = LED(20)
 
+shutdown = False
+
 
 def watch_bee():
     global shutdown, solved_bee
@@ -68,7 +70,6 @@ thread1.start()
 thread2.start()
 thread3.start()
 
-shutdown = False
 reset()    
 while True:
     if solved_bee and solved_rain and solved_sun:
