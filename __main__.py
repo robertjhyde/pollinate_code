@@ -59,17 +59,14 @@ def reset():
     state = 0
     beeled.off()
     falling = False
-    thread1.exit()
-    thread2.exit()
-    thread3.exit()
-    thread1.start()
-    thread2.start()
-    thread3.start()
 
     
 thread1 = Thread(target = watch_bee, args = ())
 thread2 = Thread(target = watch_rain, args = ())
 thread3 = Thread(target = watch_sun, args = ())
+thread1.start()
+thread2.start()
+thread3.start()
 
 reset()    
 while True:
