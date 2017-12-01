@@ -1,5 +1,6 @@
 from time import sleep
 from gpiozero import Button, LED
+from threading import Thread
 
 beebutton = Button(pin_no)
 beeled = LED(pin_no)
@@ -8,6 +9,11 @@ lightgate = Button(pin_no)
 
 sunbutton = Button(21)
 sunled = LED(20)
+
+
+thread1 = Thread(target = watch_bee, args = ())
+thread2 = Thread(target = watch_rain, args = ())
+thread3 = Thread(target = watch_sun, args = ())
     
 
 def watch_bee():
@@ -17,7 +23,6 @@ def watch_bee():
             solved_bee = True
             print('bee is solved')
             beeled.on()
-    thread.exit()
     
 def watch_rain():
     global solved_rain, count, falling
@@ -30,8 +35,7 @@ def watch_rain():
         falling = True
         while falling:
             # falling_rain business
-            print(falling rain business)
-    thread.exit()
+            print('falling rain business')
 
 def watch_sun():
     global solved_sun, state
@@ -46,7 +50,6 @@ def watch_sun():
             sunled.off()
             solved_sun = False
             print('sun is unsolved')
-    thread.exit()
     
 def flower():
     print('flowers blossom')
@@ -61,13 +64,14 @@ def reset():
     state = 0
     beeled.off()
     falling = False
+    thread1.exit()
+    thread2.exit()
+    thread3.exit()
+    thread1.start()
+    thread2.start()
+    thread3.start()
 
-
-reset()
-thread 1 = thread(watch_bee)
-thread 2 = thread(watch_rain)
-thread 3 = thread(watch_sun)
-
+    
 while True:
     if solved_bee and solved_rain and solved_sun:
         flower()
