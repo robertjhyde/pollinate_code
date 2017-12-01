@@ -12,7 +12,7 @@ sunled = LED(20)
 
 
 def watch_bee():
-    global solved_bee
+    global shutdown, solved_bee
     while not shutdown:
         if beebutton_pressed:
             solved_bee = True
@@ -20,7 +20,7 @@ def watch_bee():
             beeled.on()
     
 def watch_rain():
-    global solved_rain, count, falling
+    global shutdown, solved_rain, count, falling
     while not shutdown:
         while count < 5:
             if lightgate_pressed:
@@ -33,7 +33,7 @@ def watch_rain():
             print('falling rain business')
 
 def watch_sun():
-    global solved_sun, state
+    global shutdown, solved_sun, state
     while not shutdown:
         if sunbutton_pressed:
             state = (state+1)%2
@@ -68,6 +68,7 @@ thread1.start()
 thread2.start()
 thread3.start()
 
+shutdown = False
 reset()    
 while True:
     if solved_bee and solved_rain and solved_sun:
