@@ -29,23 +29,28 @@ def watch_rain():
         print('rain is solved')
         falling = True
         while falling:
-            falling_rain business
-    thread.exit()
+            # falling_rain business
+            print(falling rain business)
+        thread.exit()
 
 def watch_sun():
     global solved_sun, state
     while not shutdown:
         if sunbutton_pressed:
             state = (state+1)%2
-        if state = 1:
+        if state == 1:
             sunled.on()
             solved_sun = True
             print('sun is solved')
-        if state = 0:
+        if state == 0:
             sunled.off()
             solved_sun = False
             print('sun is unsolved')
     thread.exit()
+    
+def flower():
+    print('flowers blossom')
+    # tom's code in here
 
 def reset():
     global solved_bee, solved_rain, solved_sun, count, state, falling
