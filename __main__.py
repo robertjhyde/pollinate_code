@@ -31,7 +31,7 @@ def watch_rain():
         while falling:
             # falling_rain business
             print(falling rain business)
-        thread.exit()
+    thread.exit()
 
 def watch_sun():
     global solved_sun, state
