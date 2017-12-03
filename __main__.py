@@ -1,7 +1,6 @@
 from time import sleep
 from gpiozero import Button, LED, Servo #check
 from threading import Thread
-from Rpi.GPIO as GPIO #check
 
 beebutton = Button(26)
 beeled = LED(19)
