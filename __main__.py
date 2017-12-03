@@ -50,7 +50,8 @@ def watch_sun():
         if state == 1:
             sunled.on()
             solved_sun = True
-            print('sun is solved) #tom edit
+            print('sun is solved) 
+                  # tom edit
         if state == 0:
             sunled.off()
             solved_sun = False
