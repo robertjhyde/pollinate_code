@@ -50,17 +50,17 @@ def watch_sun():
         if state == 1:
             sunled.on()
             solved_sun = True
+            print('sun is solved) #tom edit
         if state == 0:
             sunled.off()
             solved_sun = False
-            print('sun is unsolved')
+            #print('sun is unsolved') #tom edit
     
 def flower():
     while True:
         servo.min()
         sleep(1)
         servo.max()
-        sleep(20)
         #want it to reset to min always
     print('flowers blossom')
     
