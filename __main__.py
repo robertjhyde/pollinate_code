@@ -40,7 +40,7 @@ def watch_rain():
         falling = True
         while falling:
             # falling_rain business
-            print('falling rain business')
+            # print('falling rain business') #Tom edit
 
 def watch_sun():
     global shutdown, solved_sun, state
