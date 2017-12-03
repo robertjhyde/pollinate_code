@@ -1,6 +1,7 @@
 from time import sleep
-from gpiozero import Button, LED
+from gpiozero import Button, LED, Servo #check
 from threading import Thread
+from Rpi.GPIO as GPIO #check
 
 beebutton = Button(26)
 beeled = LED(19)
@@ -9,6 +10,8 @@ lightgate = Button(16)
 
 sunbutton = Button(21)
 sunled = LED(20)
+
+servo = Servo(18)
 
 shutdown = False
 solved_bee = False
@@ -55,8 +58,14 @@ def watch_sun():
             print('sun is unsolved')
     
 def flower():
+    while True:
+        servo.min()
+        sleep(1)
+        servo.max()
+        sleep(20)
+        #want it to reset to min always
     print('flowers blossom')
-    # tom's code in here
+    
 
 def reset():
     global solved_bee, solved_rain, solved_sun, count, state, falling
