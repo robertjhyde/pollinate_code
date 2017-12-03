@@ -38,7 +38,7 @@ def watch_rain():
         solved_rain = True
         print('rain is solved')
         falling = True
-        while falling:
+        #while falling:
             # falling_rain business
             # print('falling rain business') #Tom edit
 
