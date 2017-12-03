@@ -5,8 +5,8 @@ from threading import Thread
 beebutton = Button(26)
 beeled = LED(19)
 
-lightgate = Button(16)
-
+lightgate = Button(23) # TW edit gpio number
+ 
 sunbutton = Button(21)
 sunled = LED(20)
 
