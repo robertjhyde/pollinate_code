@@ -51,7 +51,6 @@ def watch_sun():
         if state == 1:
             sunled.on()
             solved_sun = True
-            print('sun is solved')
         if state == 0:
             sunled.off()
             solved_sun = False
