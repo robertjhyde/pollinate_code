@@ -1,12 +1,16 @@
 #include <FastLED.h>
+int r1 = 0;
+int r2 = 0;
+int s = 0;
 
 CRGB bee[3];
+
 CRGB rain1[2];
 CRGB rain2[3];
-CRGB rain3[3];
-CRGB rain4[3];
+
 CRGB cloud1[3];
 CRGB cloud2[2];
+
 CRGB sun[4];
 
 
@@ -16,8 +20,8 @@ void setup(){
   
   FastLED.addLeds<NEOPIXEL, 2>(rain1, 2); //left drop
   FastLED.addLeds<NEOPIXEL, 3>(rain2, 3); //midleft drop
-  FastLED.addLeds<NEOPIXEL, 4>(rain3, 3); //midright drop
-  FastLED.addLeds<NEOPIXEL, 5>(rain4, 3); //right drop
+  FastLED.addLeds<NEOPIXEL, 4>(rain2, 3); //midright drop
+  FastLED.addLeds<NEOPIXEL, 5>(rain2, 3); //right drop
   
   FastLED.addLeds<NEOPIXEL, 6>(cloud1, 3); //bottom cloud
   FastLED.addLeds<NEOPIXEL, 7>(cloud2, 2); //top cloud
@@ -37,14 +41,24 @@ void setup(){
 void loop(){
 
   // reset
-  if (Serial.available()) {
-    com = Serial.read()
-    if com == '1' {
-      StateA = (StateA+1)%2; }
-    if com == '2' {
-      StateB = (StateB+1)%2; }
-    if com == '3' {
-      StateC = (StateC+1)%2; }
+  if (Serial.available() > 0) {
+    int com = Serial.read()
+    switch (com) {
+      case '1';
+        bee[1] = CGRB::Yellow
+        bee[2] = CGRB::Yellow
+        bee[3] = CGRB::Yellow
+        FastLED.show();
+      case '2':
+        rain2[i-1] = CRGB::Black;
+        rain2[i] = CRGB::Blue;
+        r2 = (r2+1)%91;
+        FastLED.show();
+      case '3':
+        sun[i-1] = CRGB::Black;
+        sun[i] = CRGB::Blue;
+        s = (s+1)%91;
+        FastLED.show();
     
     
 }
