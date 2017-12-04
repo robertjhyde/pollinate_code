@@ -37,6 +37,7 @@ def watch_rain():
     while not shutdown:
         while count < 5:
             if lightgate.is_pressed:
+                print('pressing it boys')
                 count += 1
         solved_rain = True
         print('rain is solved')
