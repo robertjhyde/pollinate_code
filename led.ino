@@ -2,7 +2,7 @@
 int r = 0;
 int s = 0;
 
-CRGB bee[3];
+CRGB bee[4];
 
 CRGB rain[15];
 
@@ -14,7 +14,7 @@ CRGB sun[4];
 
 void setup(){
 
-  FastLED.addLeds<NEOPIXEL, 1>(bee, 3); //bee front+wing
+  FastLED.addLeds<NEOPIXEL, 1>(bee, 4); //bee front+wing
   
   FastLED.addLeds<NEOPIXEL, 2>(rain, 15); //rain
   //FastLED.addLeds<NEOPIXEL, 3>(rain, 3); //midleft drop
@@ -43,17 +43,18 @@ void loop(){
         bee[1] = CGRB::Yellow;
         bee[2] = CGRB::Yellow;
         bee[3] = CGRB::Yellow;
+        bee[4] = CRGB::Yellow;
         FastLED.show();
         break;
       case '2':
-        rain[i-1] = CRGB::Black;
-        rain[i] = CRGB::Blue;
+        rain[r-1] = CRGB::Black;
+        rain[r] = CRGB::Blue;
         r = (r+1)%91;
         FastLED.show();
         break;
       case '3':
-        sun[i-1] = CRGB::Black;
-        sun[i] = CRGB(250, 145, 25);
+        sun[s-1] = CRGB::Black;
+        sun[s] = CRGB(250, 145, 25);
         s = (s+1)%91;
         FastLED.show();
         break;
@@ -61,6 +62,7 @@ void loop(){
         bee[1] = CGRB::Black;
         bee[2] = CGRB::Black;
         bee[3] = CGRB::Black;
+        bee[4] = CGRB::Black;
         sun[i] = CRGB::Black;
         rain[i] = CRGB::Black;
         FastLED.show();
