@@ -1,26 +1,33 @@
 #include <FastLED.h>
 
-
-CRGB bee1[];
-CRGB bee2[];
-CRGB rain[];
-CRGB cloud[];
-
+CRGB bee[3];
+CRGB rain1[2];
+CRGB rain2[3];
+CRGB rain3[3];
+CRGB rain4[3];
+CRGB cloud1[3];
+CRGB cloud2[2];
+CRGB sun[4];
 
 
 void setup(){
 
-FastLED.addLeds<NEOPIXEL, 1>(leds, 3); //bee front+wing
-FastLED.addLeds<NEOPIXEL, 2>(leds, 2); //bee back
-
-FastLED.addLeds<NEOPIXEL, 3>(leds, 2); //left drop
-FastLED.addLeds<NEOPIXEL, 4>(leds, 3); //midleft drop
-FastLED.addLeds<NEOPIXEL, 5>(leds, 4); //midright drop
-FastLED.addLeds<NEOPIXEL, 6>(leds, 5); //right drop
-
-FastLED.addLeds<NEOPIXEL, 7>(leds, 3); //bottom cloud
-FastLED.addLeds<NEOPIXEL, 8>(leds, 2); //top cloud
-
+  FastLED.addLeds<NEOPIXEL, 1>(bee, 3); //bee front+wing
+  
+  FastLED.addLeds<NEOPIXEL, 2>(rain1, 2); //left drop
+  FastLED.addLeds<NEOPIXEL, 3>(rain2, 3); //midleft drop
+  FastLED.addLeds<NEOPIXEL, 4>(rain3, 3); //midright drop
+  FastLED.addLeds<NEOPIXEL, 5>(rain4, 3); //right drop
+  
+  FastLED.addLeds<NEOPIXEL, 6>(cloud1, 3); //bottom cloud
+  FastLED.addLeds<NEOPIXEL, 7>(cloud2, 2); //top cloud
+  
+  FastLED.addLeds<NEOPIXEL, 8>(sun, 4); //sun1
+  FastLED.addLeds<NEOPIXEL, 9>(sun, 4); //sun2
+  FastLED.addLeds<NEOPIXEL, 10>(sun, 4); //sun3
+  FastLED.addLeds<NEOPIXEL, 11>(sun, 4); //sun4
+  FastLED.addLeds<NEOPIXEL, 12>(sun, 4); //sun5
+  FastLED.addLeds<NEOPIXEL, 13>(sun, 4); //sun6
 
 }
 
@@ -29,56 +36,7 @@ FastLED.addLeds<NEOPIXEL, 8>(leds, 2); //top cloud
 
 void loop(){
 
-if (Serial.available()) {
-  if (Serial.read() – ‘0’) {
-  
-  }
   // reset
-  
-  
-  
-  
-  if (Serial.read() – ‘1’) {
-  
-  }
-  // bee puzzle
-  
-  if (Serial.read() – ‘2’) {
-  
-  }
-  // rain puzzle
-  
-  if (Serial.read() – ‘3’) {
-  
-  }
-  // sun puzzle
-  
-  
-  
-  
-  if (Serial.read() – ‘1’) && (Serial.read() - '2') {
-  
-  }
-  // bee and rain
-  
-  if (Serial.read() – ‘1’) && (Serial.read() - '3') {
-  
-  }
-  // bee and sun
-  
-  if (Serial.read() – ‘2’) && (Serial.read() - '3') {
-  
-  }
-  // rain and sun
-  
-  
-  
-  
-  if (Serial.read() – ‘1’) && (Serial.read() - '2') && (Serial.read() - '3') {
-  
-  }
-  // all puzzles
-
-
-
+  if (Serial.available()) {
+    
 }
