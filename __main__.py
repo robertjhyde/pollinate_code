@@ -75,7 +75,7 @@ def reset():
     solved_sun = False
     count = 0
     state = 0
-    beeled.off()
+    #beeled.off()
     falling = False
 
     
