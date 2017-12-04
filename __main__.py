@@ -1,6 +1,9 @@
 from time import sleep
 from gpiozero import Button, LED, Servo #check
 from threading import Thread
+import serial
+
+serialToArduino = serial.Serial('/dev/ttyACM0', 9600)
 
 beebutton = Button(26)
 beeled = LED(19)
@@ -27,7 +30,7 @@ def watch_bee():
         if beebutton.is_pressed:
             solved_bee = True
             print('bee is solved')
-            beeled.on()
+            serialToArduino.write('1') #turns the bee on
     
 def watch_rain():
     global shutdown, solved_rain, count, falling
@@ -39,7 +42,7 @@ def watch_rain():
         print('rain is solved')
         falling = True
         while falling:
-            # falling_rain business
+            serialToArduino.write('3') #turns the rain and clouds on
             print('falling rain business') #Tom edit
 
 def watch_sun():
@@ -48,11 +51,11 @@ def watch_sun():
         if sunbutton.is_pressed:
             state = (state+1)%2
         if state == 1:
-            sunled.on()
+            serialToArduino.write('5') #turns the sun on
             solved_sun = True
             print('sun is solved') # tom edit
         if state == 0:
-            sunled.off()
+            serialToArduino.write('4') #turns the sun off
             solved_sun = False
             #print('sun is unsolved') #tom edit
     
@@ -74,6 +77,8 @@ def reset():
     state = 0
     beeled.off()
     falling = False
+    serialToArduino.write('0') #turns the bee led off
+    serialToArduino.write('2') #turns the rain off
 
     
 thread1 = Thread(target = watch_bee, args = ())
