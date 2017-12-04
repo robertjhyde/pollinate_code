@@ -38,5 +38,13 @@ void loop(){
 
   // reset
   if (Serial.available()) {
+    com = Serial.read()
+    if com == '1' {
+      StateA = (StateA+1)%2; }
+    if com == '2' {
+      StateB = (StateB+1)%2; }
+    if com == '3' {
+      StateC = (StateC+1)%2; }
+    
     
 }
