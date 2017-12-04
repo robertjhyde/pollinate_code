@@ -2,31 +2,31 @@
 int r = 0;
 int s = 0;
 
-CRGB bee[4];
+CRGB bee[5];
 
-CRGB rain[15];
+CRGB rain[16];
 
 //CRGB cloud1[3];
 //CRGB cloud2[2];
 
-CRGB sun[4];
+CRGB sun[5];
 
 
 void setup(){
 
-  FastLED.addLeds<NEOPIXEL, 1>(bee, 4); //bee front+wing
+  FastLED.addLeds<NEOPIXEL, 1>(bee, 5); //bee front+wing
   
-  FastLED.addLeds<NEOPIXEL, 2>(rain, 15); //rain
+  FastLED.addLeds<NEOPIXEL, 2>(rain, 16); //rain
   //FastLED.addLeds<NEOPIXEL, 3>(rain, 3); //midleft drop
   //FastLED.addLeds<NEOPIXEL, 4>(rain, 3); //midright drop
   //FastLED.addLeds<NEOPIXEL, 5>(rain, 3); //right drop
   
-  FastLED.addLeds<NEOPIXEL, 8>(sun, 4); //sun1
-  FastLED.addLeds<NEOPIXEL, 9>(sun, 4); //sun2
-  FastLED.addLeds<NEOPIXEL, 10>(sun, 4); //sun3
-  FastLED.addLeds<NEOPIXEL, 11>(sun, 4); //sun4
-  FastLED.addLeds<NEOPIXEL, 12>(sun, 4); //sun5
-  FastLED.addLeds<NEOPIXEL, 13>(sun, 4); //sun6
+  FastLED.addLeds<NEOPIXEL, 8>(sun, 5); //sun1
+  FastLED.addLeds<NEOPIXEL, 9>(sun, 5); //sun2
+  FastLED.addLeds<NEOPIXEL, 10>(sun, 5); //sun3
+  FastLED.addLeds<NEOPIXEL, 11>(sun, 5); //sun4
+  FastLED.addLeds<NEOPIXEL, 12>(sun, 5); //sun5
+  FastLED.addLeds<NEOPIXEL, 13>(sun, 5); //sun6
 
 }
 
