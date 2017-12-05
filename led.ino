@@ -7,30 +7,20 @@ int StateB = 0;
 int StateC = 0;
 
 CRGB bee[4];
-
 CRGB rain[16];
-
 CRGB sun[18];
 
-
 void setup(){
-
-  FastLED.addLeds<NEOPIXEL, 1>(bee, 4); //bee front+wing
-  
+  FastLED.addLeds<NEOPIXEL, 1>(bee, 4); //bee front+wing  
   FastLED.addLeds<NEOPIXEL, 2>(rain, 16); //rain
-  
   FastLED.addLeds<NEOPIXEL, 8>(sun, 18); //sun
-
 }
-
-
 
 
 void loop(){
 
-  // reset
   if (Serial.available() > 0) {
-    int com = Serial.read()
+    int com = Serial.read();
     switch (com) {
       case '1';
         StateA = (StateA+1)%2
@@ -44,16 +34,17 @@ void loop(){
       default:
         int nothing;
   }
-      
+  
+  
   if (StateA == 1) {
-    bee[1] = CGRB::Yellow;
-    bee[2] = CGRB::Yellow;
-    bee[3] = CGRB::Yellow;
-    FastLED.show();
-  else:
-    bee[1] = CGRB::Black;
-    bee[2] = CGRB::Black;
-    bee[3] = CGRB::Black;
+    bee[1] = CRGB::Yellow;
+    bee[2] = CRGB::Yellow;
+    bee[3] = CRGB::Yellow;
+    FastLED.show(); }
+  else: {
+    bee[1] = CRGB::Black;
+    bee[2] = CRGB::Black;
+    bee[3] = CRGB::Black;
     FastLED.show();
   }
     
@@ -64,8 +55,8 @@ void loop(){
     rain[r2] = CRGB::Blue;
     r1 = (r1+1)%16;
     r2 = (r2+1)%16;
-    FastLED.show();
-  else:
+    FastLED.show(); }
+  else: {
     r1 = 0;
     r2 = 8;
     for (i=0, i<15, i++) {
@@ -76,13 +67,13 @@ void loop(){
   if (StateC == 1) { //write these manually in functions
     sun[0] = CRGB::Red;
     if (s = 0) {
-      first_ring();
-    else:
+      first_ring(); }
+    else: {
       second_ring();
     }
     s = (s+1)%2;
-    FastLED.show();
-  else:
+    FastLED.show(); }
+  else: {
     for (i=0, i<17, i++) {
     sun[i] = CRGB::Black; }
     FastLED.show();
