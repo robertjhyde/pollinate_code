@@ -101,7 +101,6 @@ void first_ring(){
   sun[11] = CRGB::Black;
   sun[14] = CRGB::Black;
   sun[15] = CRGB::Black;
-  }
 }
   
 void second_ring(){
@@ -121,5 +120,4 @@ void second_ring(){
   sun[12] = CRGB::Black;
   sun[13] = CRGB::Black;
   sun[16] = CRGB::Black;
-  }
 }
