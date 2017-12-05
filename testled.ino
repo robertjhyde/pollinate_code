@@ -31,6 +31,7 @@ void loop(){
         for (int i=0; i<17; i++) {
           sun[i] = CRGB::Black; }
         FastLED.show();
+        break;
       case '1':
         bee[1] = CRGB::Yellow;
         bee[2] = CRGB::Yellow;
@@ -53,7 +54,7 @@ void loop(){
           second_ring();
         }
         s = (s+1)%2;
-        FastLED.show(); }
+        FastLED.show();
         break;
       default:
         int nothing;
