@@ -85,14 +85,14 @@ void loop(){
   
   
 void first_ring(){
-  sun[1] = CRGB::Red;
-  sun[3] = CRGB::Red;
-  sun[6] = CRGB::Red;
-  sun[7] = CRGB::Red;
-  sun[10] = CRGB::Red;
-  sun[12] = CRGB::Red;
-  sun[13] = CRGB::Red;
-  sun[16] = CRGB::Red;
+  sun[1] = CRGB::Orange;
+  sun[3] = CRGB::Orange;
+  sun[6] = CRGB::Orange;
+  sun[7] = CRGB::Orange;
+  sun[10] = CRGB::Orange;
+  sun[12] = CRGB::Orange;
+  sun[13] = CRGB::Orange;
+  sun[16] = CRGB::Orange;
   sun[0] = CRGB::Black;
   sun[4] = CRGB::Black;
   sun[7] = CRGB::Black;
@@ -104,14 +104,14 @@ void first_ring(){
 }
   
 void second_ring(){
-  sun[0] = CRGB::Red;
-  sun[4] = CRGB::Red;
-  sun[7] = CRGB::Red;
-  sun[8] = CRGB::Red;
-  sun[9] = CRGB::Red;
-  sun[11] = CRGB::Red;
-  sun[14] = CRGB::Red;
-  sun[15] = CRGB::Red;
+  sun[0] = CRGB::Orange;
+  sun[4] = CRGB::Orange;
+  sun[7] = CRGB::Orange;
+  sun[8] = CRGB::Orange;
+  sun[9] = CRGB::Orange;
+  sun[11] = CRGB::Orange;
+  sun[14] = CRGB::Orange;
+  sun[15] = CRGB::Orange;
   sun[1] = CRGB::Black;
   sun[3] = CRGB::Black;
   sun[6] = CRGB::Black;
