@@ -47,7 +47,7 @@ void loop(){
         StateC = (StateC+1)%2
         break;
       default:
-        //do i need this?
+        int nothing;
   }
       
   if StateA == 1: {
@@ -56,8 +56,7 @@ void loop(){
     bee[3] = CGRB::Yellow;
     bee[4] = CRGB::Yellow;
     FastLED.show();
-  }
-  else: {
+  else:
     bee[1] = CGRB::Black;
     bee[2] = CGRB::Black;
     bee[3] = CGRB::Black;
@@ -73,22 +72,22 @@ void loop(){
     r1 = (r1+1)%16;
     r2 = (r2+1)%16;
     FastLED.show();
-  }
-  else: {
-    rain[r1] = CRGB::Black;
-    rain[r2] = CRGB::Black;
+  else:
+    r1 = 0;
+    r2 = 8;
+    for (i=0, i<16, i++); {
+      rain[i] = CRGB::Black; }
     FastLED.show();
   }
         
-  if StateC == 1: {
+  if StateC == 1: { //write these manually in functions
     sun[s-1] = CRGB::Black;
     sun[s] = CRGB(250, 145, 25);
     s = (s+1)%4;
     FastLED.show();
-  }
-  else: {
+  else:
     sun[s] = CRGB::Black;
     FastLED.show();
   }
-        
+
 }
