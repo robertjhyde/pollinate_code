@@ -42,17 +42,16 @@ def watch_rain():
         solved_rain = True
         print('rain is solved')
         falling = True
-        while falling:
-            ser.write('2') #turns the rain and clouds on
-            print('falling rain business') #Tom edit
+        ser.write('2') #turns the rain and clouds on
+        print('falling rain business') #Tom edit
 
 def watch_sun():
     global shutdown, solved_sun, state
     while not shutdown:
         if sunbutton.is_pressed:
             state = (state+1)%2
+            ser.write('3')
         if state == 1:
-            ser.write('3') #turns the sun on
             solved_sun = True
             print('sun is solved') # tom edit
         if state == 0:
@@ -77,6 +76,9 @@ def reset():
     state = 0
     #beeled.off()
     falling = False
+    ser.write('1')
+    ser.write('2')
+    ser.write('3')
 
     
 thread1 = Thread(target = watch_bee, args = ())
