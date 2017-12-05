@@ -49,11 +49,12 @@ void loop(){
       case '3':
         sun[2] = CRGB::Red;
         if (s = 0) {
-          first_ring(); }
+          first_ring();
+          s = 1; }
         else {
           second_ring();
-        }
-        s = (s+1)%2;
+          s = 0;}
+        //s = (s+1)%2;
         FastLED.show();
         break;
       default:
