@@ -22,14 +22,14 @@ void loop(){
   if (Serial.available() > 0) {
     int com = Serial.read();
     switch (com) {
-      case '1';
-        StateA = (StateA+1)%2
+      case '1':
+        StateA = (StateA+1)%2;
         break;
       case '2':
-        StateB = (StateB+1)%2
+        StateB = (StateB+1)%2;
         break;
       case '3':
-        StateC = (StateC+1)%2
+        StateC = (StateC+1)%2;
         break;
       default:
         int nothing;
@@ -41,7 +41,7 @@ void loop(){
     bee[2] = CRGB::Yellow;
     bee[3] = CRGB::Yellow;
     FastLED.show(); }
-  else: {
+  else {
     bee[1] = CRGB::Black;
     bee[2] = CRGB::Black;
     bee[3] = CRGB::Black;
@@ -56,7 +56,7 @@ void loop(){
     r1 = (r1+1)%16;
     r2 = (r2+1)%16;
     FastLED.show(); }
-  else: {
+  else {
     r1 = 0;
     r2 = 8;
     for (i=0, i<15, i++) {
@@ -68,12 +68,12 @@ void loop(){
     sun[0] = CRGB::Red;
     if (s = 0) {
       first_ring(); }
-    else: {
+    else {
       second_ring();
     }
     s = (s+1)%2;
     FastLED.show(); }
-  else: {
+  else {
     for (i=0, i<17, i++) {
     sun[i] = CRGB::Black; }
     FastLED.show();
