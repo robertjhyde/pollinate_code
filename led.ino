@@ -1,6 +1,6 @@
 #include <FastLED.h>
 int r1 = 0;
-int r2 = 0;
+int r2 = 8;
 int s = 0;
 int StateA = 0;
 int StateB = 0;
