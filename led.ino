@@ -14,6 +14,7 @@ void setup(){
   FastLED.addLeds<NEOPIXEL, 1>(bee, 4); //bee front+wing  
   FastLED.addLeds<NEOPIXEL, 2>(rain, 16); //rain
   FastLED.addLeds<NEOPIXEL, 8>(sun, 18); //sun
+  Serial.begin(9600);
 }
 
 
