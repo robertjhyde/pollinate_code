@@ -1,23 +1,51 @@
-#include "FastLED.h"
-int i1 = 0;
-int i2 = 0;
-int i3 = 8;
+#include <FastLED.h>
+int r1 = 0;
+int r2 = 8;
 int s = 0;
 
+CRGB bee[4];
+CRGB rain[16];
 CRGB sun[18];
-CRGB leds2[16];
 
-void setup() {
-  FastLED.addLeds<NEOPIXEL, 1>(sun, 18);
-  FastLED.addLeds<NEOPIXEL, 2>(leds2, 16);
-  Serial.begin(9600);
+void setup(){
+  FastLED.addLeds<NEOPIXEL, 1>(bee, 4); //bee front+wing  
+  FastLED.addLeds<NEOPIXEL, 2>(rain, 16); //rain
+  FastLED.addLeds<NEOPIXEL, 8>(sun, 18); //sun
 }
 
-void loop() {
+
+void loop(){
+
   if (Serial.available() > 0) {
-    int inp = Serial.read();
-    switch (inp) {
+    int com = Serial.read();
+    switch (com) {
+      case '0':
+        bee[1] = CRGB::Black;
+        bee[2] = CRGB::Black;
+        bee[3] = CRGB::Black;
+        r1 = 0;
+        r2 = 8;
+        for (int i=0; i<15; i++) {
+          rain[i] = CRGB::Black; }
+        s = 0;
+        for (int i=0; i<17; i++) {
+          sun[i] = CRGB::Black; }
+        FastLED.show();
       case '1':
+        bee[1] = CRGB::Yellow;
+        bee[2] = CRGB::Yellow;
+        bee[3] = CRGB::Yellow;
+        break;
+      case '2':
+        rain[r1-1] = CRGB::Black;
+        rain[r1] = CRGB::Blue;
+        rain[r2-1] = CRGB::Black;
+        rain[r2] = CRGB::Blue;
+        r1 = (r1+1)%16;
+        r2 = (r2+1)%16;
+        FastLED.show();
+        break;
+      case '3':
         sun[2] = CRGB::Red;
         if (s = 0) {
           first_ring(); }
@@ -25,29 +53,15 @@ void loop() {
           second_ring();
         }
         s = (s+1)%2;
-        FastLED.show();
-        break;
-      case '2':   
-        leds[i1-1] = CRGB::Black;
-        leds[i1] = CRGB::Orange;
-        leds2[i2-1] = CRGB::Black;
-        leds2[i2] = CRGB::Blue;
-        leds2[i3-1] = CRGB::Black;
-        leds2[i3] = CRGB::Blue;
-        i1 = (i1+1)%7;           // set our current dot to red
-        i2 = (i2+1)%16;
-        i3 = (i3+1)%16;
-        FastLED.show();
+        FastLED.show(); }
         break;
       default:
-        leds[i1] = CRGB::Black;
-        leds2[i2] = CRGB::Black;
-        FastLED.show();
+        int nothing;
     }
   }
 }
-
-
+  
+  
 void first_ring(){
   sun[1] = CRGB::Red;
   sun[3] = CRGB::Red;
