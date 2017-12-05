@@ -1,5 +1,7 @@
 from time import sleep
 from gpiozero import Button, LED, Servo #check
+import RPi.GPIO as GPIO #TW EDIT
+GPIO.setmode(GPIO.BCM) #TW EDIT
 from threading import Thread
 import serial
 
@@ -8,8 +10,9 @@ ser = serial.Serial('/dev/ttyACM0', 9600)
 beebutton = Button(26)
 #beeled = LED(19)
 
-lightgate = Button(23) # TW edit gpio number
- 
+#lightgate = Button(17)
+lightgate = GPIO.setup(17,GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
 sunbutton = Button(21)
 #sunled = LED(20)
 
@@ -38,8 +41,8 @@ def watch_rain():
         while count < 5:
             if lightgate.is_pressed:
                 print('pressing it boys')
-                count += 1
-        solved_rain = True
+             count += 1
+             solved_rain = True
         print('rain is solved')
         falling = True
         ser.write('2') #turns the rain and clouds on
