@@ -17,6 +17,7 @@ sunbutton = Button(21)
 #sunled = LED(20)
 
 servo = Servo(18)
+GPIO.setup(24,GPIO.OUT)
 
 shutdown = False
 solved_bee = False
@@ -64,8 +65,13 @@ def watch_sun():
 def flower():
     while True:
         servo.min()
-        sleep(1)
+        GPIO.output(24,GPIO.LOW)
+        sleep(5)
         servo.max()
+        GPIO.output(24,GPIO.HIGH)
+        sleep(15)
+        GPIO.output(24,GPIO.LOW)
+        servo.min()
         #want it to reset to min always
     print('flowers blossom')
     
