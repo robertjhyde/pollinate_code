@@ -66,7 +66,7 @@ void loop(){
   }
         
   if (StateC == 1) { //write these manually in functions
-    sun[0] = CRGB::Red;
+    sun[2] = CRGB::Red;
     if (s = 0) {
       first_ring(); }
     else {
@@ -84,15 +84,41 @@ void loop(){
   
   
 void first_ring(){
-  for (int i=1; i<9; i++) {
-    sun[i*2] = CRGB::Black;
-    sun[(i*2)-1] = CRGB::Red;
+  sun[1] = CRGB::Red;
+  sun[3] = CRGB::Red;
+  sun[6] = CRGB::Red;
+  sun[7] = CRGB::Red;
+  sun[10] = CRGB::Red;
+  sun[12] = CRGB::Red;
+  sun[13] = CRGB::Red;
+  sun[16] = CRGB::Red;
+  sun[0] = CRGB::Black;
+  sun[4] = CRGB::Black;
+  sun[7] = CRGB::Black;
+  sun[8] = CRGB::Black;
+  sun[9] = CRGB::Black;
+  sun[11] = CRGB::Black;
+  sun[14] = CRGB::Black;
+  sun[15] = CRGB::Black;
   }
 }
   
 void second_ring(){
-  for (int i=1; i<9; i++) {
-    sun[(i*2)-1] = CRGB::Black;
-    sun[i*2] = CRGB::Red;
+  sun[0] = CRGB::Red;
+  sun[4] = CRGB::Red;
+  sun[7] = CRGB::Red;
+  sun[8] = CRGB::Red;
+  sun[9] = CRGB::Red;
+  sun[11] = CRGB::Red;
+  sun[14] = CRGB::Red;
+  sun[15] = CRGB::Red;
+  sun[1] = CRGB::Black;
+  sun[3] = CRGB::Black;
+  sun[6] = CRGB::Black;
+  sun[7] = CRGB::Black;
+  sun[10] = CRGB::Black;
+  sun[12] = CRGB::Black;
+  sun[13] = CRGB::Black;
+  sun[16] = CRGB::Black;
   }
 }
