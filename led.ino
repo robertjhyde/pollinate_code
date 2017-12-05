@@ -33,6 +33,7 @@ void loop(){
         break;
       default:
         int nothing;
+    }
   }
   
   
@@ -82,14 +83,14 @@ void loop(){
 }
   
   
-void first_ring() {
+void first_ring(){
   for (int i=1; i<9; i++) {
     sun[i*2] = CRGB::Black;
     sun[(i*2)-1] = CRGB::Red;
   }
 }
   
-void second_ring() {
+void second_ring(){
   for (int i=1; i<9; i++) {
     sun[(i*2)-1] = CRGB::Black;
     sun[i*2] = CRGB::Red;
