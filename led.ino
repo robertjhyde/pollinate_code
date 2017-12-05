@@ -59,7 +59,7 @@ void loop(){
   else {
     r1 = 0;
     r2 = 8;
-    for (i=0, i<15, i++) {
+    for (int i=0; i<15; i++) {
       rain[i] = CRGB::Black; }
     FastLED.show();
   }
@@ -74,7 +74,7 @@ void loop(){
     s = (s+1)%2;
     FastLED.show(); }
   else {
-    for (i=0, i<17, i++) {
+    for (int i=0; i<17; i++) {
     sun[i] = CRGB::Black; }
     FastLED.show();
   }
@@ -83,14 +83,14 @@ void loop(){
   
   
 void first_ring() {
-  for (i=1, i<9, i++) {
+  for (int i=1; i<9; i++) {
     sun[i*2] = CRGB::Black;
     sun[(i*2)-1] = CRGB::Red;
   }
 }
   
 void second_ring() {
-  for (i=1, i<9, i++) {
+  for (int i=1; i<9; i++) {
     sun[(i*2)-1] = CRGB::Black;
     sun[i*2] = CRGB::Red;
   }
