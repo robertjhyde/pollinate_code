@@ -42,9 +42,10 @@ def watch_rain():
                 count += 1
         solved_rain = True
         print('rain is solved')
-        falling = True
-        ser.write('2') #turns the rain and clouds on
-        print('falling rain business') #Tom edit
+        while not falling:
+            ser.write('2') #turns the rain and clouds on
+            falling = True
+            print('falling rain business') #Tom edit
 
 def watch_sun():
     global shutdown, solved_sun, state
@@ -60,9 +61,6 @@ def watch_sun():
     
 def flower():
     print('flowers blossom')
-    servo.min()
-    GPIO.output(24,GPIO.LOW)
-    sleep(5)
     servo.max()
     GPIO.output(24,GPIO.HIGH)
     sleep(15)
@@ -79,6 +77,9 @@ def reset():
     state = 0
     falling = False
     ser.write('0')
+    servo.min()
+    GPIO.output(24,GPIO.LOW)
+    sleep(5)
 
     
 thread1 = Thread(target = watch_bee, args = ())
