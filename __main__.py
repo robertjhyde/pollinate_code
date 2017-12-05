@@ -11,7 +11,7 @@ beebutton = Button(26)
 #beeled = LED(19)
 
 #lightgate = Button(17)
-lightgate = GPIO.setup(17,GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(17,GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 sunbutton = Button(21)
 #sunled = LED(20)
@@ -39,10 +39,10 @@ def watch_rain():
     global shutdown, solved_rain, count, falling
     while not shutdown:
         while count < 5:
-            if lightgate.is_pressed:
+            if GPIO.input(17) == 1:
                 print('pressing it boys')
-             count += 1
-             solved_rain = True
+                count += 1
+        solved_rain = True
         print('rain is solved')
         falling = True
         ser.write('2') #turns the rain and clouds on
