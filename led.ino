@@ -23,6 +23,11 @@ void loop(){
   if (Serial.available() > 0) {
     int com = Serial.read();
     switch (com) {
+      case '0':
+        StateA = 0;
+        StateB = 0;
+        StateC = 0;
+        break;
       case '1':
         StateA = (StateA+1)%2;
         break;
@@ -67,24 +72,29 @@ void loop(){
   }
         
   if (StateC == 1) { //write these manually in functions
-    sun[2] = CRGB::Red;
-    if (s = 0) {
-      first_ring(); }
-    else {
-      second_ring();
+    sun[2] = CRGB::Orange;
+    FastLED.show()
+    if (s == 0) {
+      first_ring(1);
+      second_ring(0);
+    }
+    if (s == 1) {
+      second_ring(1);
+      first_ring(0);
     }
     s = (s+1)%2;
-    FastLED.show(); }
-  else {
-    for (int i=0; i<17; i++) {
-    sun[i] = CRGB::Black; }
-    FastLED.show();
   }
-
+  else {
+    sun[2] = CRGB::Black;
+    FastLED.show();
+    first_ring(0);
+    second_ring(0);
+  }
 }
   
   
-void first_ring(){
+void first_ring(boolean state){
+  if (state == 1) {
   sun[1] = CRGB::Orange;
   sun[3] = CRGB::Orange;
   sun[6] = CRGB::Orange;
@@ -92,26 +102,8 @@ void first_ring(){
   sun[10] = CRGB::Orange;
   sun[12] = CRGB::Orange;
   sun[13] = CRGB::Orange;
-  sun[16] = CRGB::Orange;
-  sun[0] = CRGB::Black;
-  sun[4] = CRGB::Black;
-  sun[7] = CRGB::Black;
-  sun[8] = CRGB::Black;
-  sun[9] = CRGB::Black;
-  sun[11] = CRGB::Black;
-  sun[14] = CRGB::Black;
-  sun[15] = CRGB::Black;
-}
-  
-void second_ring(){
-  sun[0] = CRGB::Orange;
-  sun[4] = CRGB::Orange;
-  sun[7] = CRGB::Orange;
-  sun[8] = CRGB::Orange;
-  sun[9] = CRGB::Orange;
-  sun[11] = CRGB::Orange;
-  sun[14] = CRGB::Orange;
-  sun[15] = CRGB::Orange;
+  sun[16] = CRGB::Orange; }
+  if (state == 0) {
   sun[1] = CRGB::Black;
   sun[3] = CRGB::Black;
   sun[6] = CRGB::Black;
@@ -119,5 +111,28 @@ void second_ring(){
   sun[10] = CRGB::Black;
   sun[12] = CRGB::Black;
   sun[13] = CRGB::Black;
-  sun[16] = CRGB::Black;
+  sun[16] = CRGB::Black; }
+  FastLED.show();
+}
+  
+void second_ring(boolean state){
+  if (state == 1) {
+  sun[0] = CRGB::Orange;
+  sun[4] = CRGB::Orange;
+  sun[7] = CRGB::Orange;
+  sun[8] = CRGB::Orange;
+  sun[9] = CRGB::Orange;
+  sun[11] = CRGB::Orange;
+  sun[14] = CRGB::Orange;
+  sun[15] = CRGB::Orange; }
+  if (state == 0) {
+  sun[0] = CRGB::Black;
+  sun[4] = CRGB::Black;
+  sun[7] = CRGB::Black;
+  sun[8] = CRGB::Black;
+  sun[9] = CRGB::Black;
+  sun[11] = CRGB::Black;
+  sun[14] = CRGB::Black;
+  sun[15] = CRGB::Black; }
+  FastLED.show();
 }
