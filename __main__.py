@@ -61,11 +61,11 @@ def watch_sun():
     
 def flower():
     print('flowers blossom')
-    servo.max()
+    servo.min()
     GPIO.output(24,GPIO.HIGH)
     sleep(15)
     GPIO.output(24,GPIO.LOW)
-    servo.min()
+    servo.max()
     #want it to reset to min always
 
 def reset():
@@ -77,7 +77,7 @@ def reset():
     state = 0
     falling = False
     ser.write('0')
-    servo.min()
+    servo.max()
     GPIO.output(24,GPIO.LOW)
     sleep(5)
 
