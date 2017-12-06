@@ -90,7 +90,14 @@ thread2.start()
 thread3.start()
 
 reset()    
-while True:
-    if solved_bee and solved_rain and solved_sun:
-        flower()
-        reset()
+try:
+    while True:
+        if solved_bee and solved_rain and solved_sun:
+            flower()
+            reset()
+except KeyboardInterrupt:
+    thread1.join()
+    thread2.join()
+    thread3.join()
+    reset()
+    
