@@ -96,8 +96,6 @@ try:
             flower()
             reset()
 except KeyboardInterrupt:
-    thread1.join()
-    thread2.join()
-    thread3.join()
+    shutdown = True
     reset()
     
