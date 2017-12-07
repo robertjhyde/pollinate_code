@@ -21,58 +21,45 @@ solved_bee = False
 solved_rain = False
 solved_sun = False
 count = 0
-state = 0
-falling = False
 
 
 def watch_bee():
     global shutdown, solved_bee
     while not shutdown:
         if beebutton.is_pressed:
-            solved_bee = True
+            solved_bee = (solved_bee+1)%2
             ser.write('1')
     
 def watch_rain():
     global shutdown, solved_rain, count, falling
     while not shutdown:
-        while count < 5:
+        while count < 5 and not shutdown:
             if GPIO.input(17) == 1:
                 count += 1
-        solved_rain = True
+        solved_rain = (solved_rain+1)%2
         ser.write('2') #turns the rain and clouds on
         count = 0
 
 def watch_sun():
-    global shutdown, solved_sun, state
+    global shutdown, solved_sun
     while not shutdown:
         if sunbutton.is_pressed:
-            state = (state+1)%2
+            solved_sun = (solved_sun+1)%2
             ser.write('3')
-        if state == 1:
-            solved_sun = True
-        if state == 0:
-            solved_sun = False
     
 def flower():
-    print('flowers blossom')
     servo.min()
     GPIO.output(24,GPIO.HIGH)
-    sleep(15)
-    GPIO.output(24,GPIO.LOW)
-    servo.max()
 
 def reset():
-    global solved_bee, solved_rain, solved_sun, count, state, falling
+    global solved_bee, solved_rain, solved_sun, count
     solved_bee = False
     solved_rain = False
     solved_sun = False
     count = 0
-    state = 0
-    falling = False
     ser.write('0')
     servo.max()
     GPIO.output(24,GPIO.LOW)
-    sleep(5)
 
     
 thread1 = Thread(target = watch_bee, args = ())
@@ -87,8 +74,9 @@ try:
     while True:
         if solved_bee and solved_rain and solved_sun:
             flower()
+            sleep(15)
             reset()
 except KeyboardInterrupt:
     shutdown = True
     reset()
-    
+    GPIO.cleanup()
