@@ -30,7 +30,6 @@ def watch_bee():
     while not shutdown:
         if beebutton.is_pressed:
             solved_bee = True
-            print('bee is solved')
             ser.write('1')
     
 def watch_rain():
@@ -38,14 +37,10 @@ def watch_rain():
     while not shutdown:
         while count < 5:
             if GPIO.input(17) == 1:
-                print('pressing it boys')
                 count += 1
         solved_rain = True
-        print('rain is solved')
-        while not falling:
-            ser.write('2') #turns the rain and clouds on
-            falling = True
-            print('falling rain business') #Tom edit
+        ser.write('2') #turns the rain and clouds on
+        count = 0
 
 def watch_sun():
     global shutdown, solved_sun, state
@@ -55,7 +50,6 @@ def watch_sun():
             ser.write('3')
         if state == 1:
             solved_sun = True
-            print('sun is solved') # tom edit
         if state == 0:
             solved_sun = False
     
@@ -66,7 +60,6 @@ def flower():
     sleep(15)
     GPIO.output(24,GPIO.LOW)
     servo.max()
-    #want it to reset to min always
 
 def reset():
     global solved_bee, solved_rain, solved_sun, count, state, falling
