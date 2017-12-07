@@ -63,6 +63,9 @@ def watch_sun():
 def flower():
     servo.min()
     GPIO.output(24,GPIO.HIGH)
+    sleep(15)
+    servo.max()
+    GPIO.output(24,GPIO.HIGH)
 
 def reset():
     global solved_bee, solved_rain, solved_sun, count
