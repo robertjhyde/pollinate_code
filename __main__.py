@@ -91,5 +91,8 @@ try:
             reset()
 except KeyboardInterrupt:
     shutdown = True
+    thread1.join()
+    thread2.join()
+    thread3.join()
     reset()
     GPIO.cleanup()
