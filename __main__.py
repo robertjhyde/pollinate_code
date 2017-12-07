@@ -50,7 +50,7 @@ def watch_rain():
 
 def watch_sun():
     global shutdown, solved_sun
-    sb_on == False
+    sb_on = False
     while not shutdown:
         if sunbutton.is_pressed and sb_on == False:
             sb_on = True
