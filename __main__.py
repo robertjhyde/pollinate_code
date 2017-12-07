@@ -95,4 +95,3 @@ except KeyboardInterrupt:
     thread2.join()
     thread3.join()
     reset()
-    GPIO.cleanup()
