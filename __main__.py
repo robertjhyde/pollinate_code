@@ -42,7 +42,7 @@ def watch_rain():
             if GPIO.input(17) == 1 and lg_on == False:
                 lg_on = True
                 count += 1
-            if GPIO.input(17) == 1 and lg_on == True:
+            if GPIO.input(17) == 0 and lg_on == True:
                 lg_on = False
         solved_rain = (solved_rain+1)%2
         ser.write('2') #turns the rain and clouds on
