@@ -14,7 +14,7 @@ void setup(){
   FastLED.addLeds<NEOPIXEL, 1>(bee, 4); 
   FastLED.addLeds<NEOPIXEL, 2>(rain, 16);
   FastLED.addLeds<NEOPIXEL, 8>(sun, 18);
-  Serial.begin(9600);
+  Serial.begin(9600); //refresh rate of 9600 bits per second
 }
 
 
@@ -27,7 +27,7 @@ void loop(){
         StateA = 0;
         StateB = 0;
         StateC = 0;
-        break;
+        break; //otherwise the switch case will run through all cases when one is triggered
       case '1':
         StateA = (StateA+1)%2;
         break;
@@ -37,19 +37,19 @@ void loop(){
       case '3':
         StateC = (StateC+1)%2;
         break;
-      default:
+      default: //nessessary, if a serial input is anything other than the cases above
         int nothing;
     }
   }
   
   
   if (StateA == 1) {
-    bee[1] = CRGB::Yellow;
+    bee[1] = CRGB::Yellow; //sets the number 1 LED in the bee strip to the colour Yellow
     bee[2] = CRGB::Yellow;
     bee[3] = CRGB::Yellow;
     FastLED.show(); }
   else {
-    bee[1] = CRGB::Black;
+    bee[1] = CRGB::Black; //sets the number 1 LED in the bee strip to the colour Black (off)
     bee[2] = CRGB::Black;
     bee[3] = CRGB::Black;
     FastLED.show();
@@ -66,7 +66,7 @@ void loop(){
   else {
     r1 = 0;
     r2 = 8;
-    for (int i=0; i<15; i++) {
+    for (int i=0; i<15; i++) { //loops for each LED in the strip
       rain[i] = CRGB::Black; }
     FastLED.show();
   }
@@ -93,7 +93,7 @@ void loop(){
 }
   
   
-void first_ring(boolean state){
+void first_ring(boolean state){ //function to turn on/off the first ring of the sun LEDs
   if (state == 1) {
   sun[1] = CRGB::Orange;
   sun[3] = CRGB::Orange;
@@ -115,7 +115,7 @@ void first_ring(boolean state){
   FastLED.show();
 }
   
-void second_ring(boolean state){
+void second_ring(boolean state){ //function to turn on/off the second ring of the sun LEDs
   if (state == 1) {
   sun[0] = CRGB::Orange;
   sun[4] = CRGB::Orange;
