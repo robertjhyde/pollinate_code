@@ -1,7 +1,7 @@
 from time import sleep
-from gpiozero import Button, LED, Servo #check
-import RPi.GPIO as GPIO #TW EDIT
-GPIO.setmode(GPIO.BCM) #TW EDIT
+from gpiozero import Button, LED, Servo
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
 from threading import Thread
 import serial
 
@@ -45,7 +45,7 @@ def watch_rain():
             if GPIO.input(17) == 0 and lg_on == True:
                 lg_on = False
         solved_rain = (solved_rain+1)%2
-        ser.write('2') #turns the rain and clouds on
+        ser.write('2')
         count = 0
 
 def watch_sun():
