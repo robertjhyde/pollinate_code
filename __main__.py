@@ -1,3 +1,5 @@
+#for overall code logic, see the code section in the portfolio
+
 from time import sleep
 from gpiozero import Button, LED, Servo
 import RPi.GPIO as GPIO
