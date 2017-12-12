@@ -16,11 +16,11 @@ sunbutton = Button(21)
 servo = Servo(18)
 GPIO.setup(24,GPIO.OUT)
 
-shutdown = False
-solved_bee = False
-solved_rain = False
-solved_sun = False
-count = 0
+shutdown = False #a variable to keep the treads running
+solved_bee = False #a variable to keep track if the bee puzzle has been solved
+solved_rain = False #a variable to keep track if the rain puzzle has been solved
+solved_sun = False #a variable to keep track if the sun puzzle has been solved
+count = 0 #to keep count of how many times the handle has been turned
 
 
 def watch_bee():
