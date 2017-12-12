@@ -1,12 +1,12 @@
-#include <FastLED.h>
-int r1 = 0;
-int r2 = 8;
-int s = 0;
-int StateA = 0;
-int StateB = 0;
-int StateC = 0;
+#include <FastLED.h> //import and use the FastLED code library
+int r1 = 0; //a variable to control which rain drop is on at a point in time
+int r2 = 8; //a variable to control the second rain drop that is on at a point in time
+int s = 0; //a variable to control which ring of the sun is to be illuminated
+int StateA = 0; //a variable to determine if the bee LEDs should be on
+int StateB = 0; //a variable to determine if the rain LEDs should be on
+int StateC = 0; //a variable to determine if the sun LEDs should be on
 
-CRGB bee[4];
+CRGB bee[4]; //naming the LED strips in the FastLED library
 CRGB rain[16];
 CRGB sun[18];
 
