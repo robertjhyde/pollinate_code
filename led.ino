@@ -11,9 +11,9 @@ CRGB rain[16];
 CRGB sun[18];
 
 void setup(){
-  FastLED.addLeds<NEOPIXEL, 1>(bee, 4); //bee front+wing  
-  FastLED.addLeds<NEOPIXEL, 2>(rain, 16); //rain
-  FastLED.addLeds<NEOPIXEL, 8>(sun, 18); //sun
+  FastLED.addLeds<NEOPIXEL, 1>(bee, 4); 
+  FastLED.addLeds<NEOPIXEL, 2>(rain, 16);
+  FastLED.addLeds<NEOPIXEL, 8>(sun, 18);
   Serial.begin(9600);
 }
 
@@ -71,7 +71,7 @@ void loop(){
     FastLED.show();
   }
         
-  if (StateC == 1) { //write these manually in functions
+  if (StateC == 1) {
     sun[2] = CRGB::Orange;
     FastLED.show()
     if (s == 0) {
