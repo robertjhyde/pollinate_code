@@ -24,19 +24,19 @@ count = 0
 
 
 def watch_bee():
-    global shutdown, solved_bee
-    bb_on = False
+    global shutdown, solved_bee #allows the global variables to be carried in and changed from within the function
+    bb_on = False #starts the bounce handling
     while not shutdown:
-        if beebutton.is_pressed and bb_on == False:
+        if beebutton.is_pressed and bb_on == False: #if button is pressed and hasn't been pressed before ('bb_on' variable = false)
             solved_bee = (solved_bee+1)%2
             ser.write('1')
-            bb_on == True
-        if not beebutton.is_pressed and bb_on == True:
-            bb_on == False
+            bb_on == True #button has been pressed so setting the 'bb_on' variable to true
+        if not beebutton.is_pressed and bb_on == True: #if the button is not pressed and it's been pressed before ('bb_on' = true)
+            bb_on == False #button has not been pressed so setting the 'bb_on' variable to false
     
 def watch_rain():
     global shutdown, solved_rain, count, falling
-    lg_on = False
+    lg_on = False #same bounce handling as above
     while not shutdown:
         while count < 5 and not shutdown:
             if GPIO.input(17) == 1 and lg_on == False:
@@ -50,7 +50,7 @@ def watch_rain():
 
 def watch_sun():
     global shutdown, solved_sun
-    sb_on = False
+    sb_on = False #same bounce handling as above
     while not shutdown:
         if sunbutton.is_pressed and sb_on == False:
             sb_on = True
@@ -60,20 +60,20 @@ def watch_sun():
             sb = False
             
     
-def flower():
-    servo.min()
-    GPIO.output(24,GPIO.HIGH)
-    sleep(15)
-    servo.max()
-    GPIO.output(24,GPIO.HIGH)
+def flower(): #this is the function that makes the flower blossom
+    servo.min() #flower opens
+    GPIO.output(24,GPIO.HIGH) #LEDs on
+    sleep(15) #pause for 15 seconds
+    servo.max() #flower closes
+    GPIO.output(24,GPIO.HIGH) #LEDs off
 
-def reset():
+def reset(): #this is the function that resets all parts to 'off' state
     global solved_bee, solved_rain, solved_sun, count
     solved_bee = False
     solved_rain = False
     solved_sun = False
     count = 0
-    ser.write('0')
+    ser.write('0') #sends a '0' to the arduino to turn off the LEDs
     servo.max()
     GPIO.output(24,GPIO.LOW)
 
@@ -86,11 +86,11 @@ thread2.start()
 thread3.start()
 
 reset()    
-try:
+try: #this interrupts the loop if Ctrl ^C is pressed in the Raspberry Pi terminal
     while True:
         if solved_bee and solved_rain and solved_sun:
             flower()
-            sleep(15)
+            sleep(5)
             reset()
 except KeyboardInterrupt:
     shutdown = True
