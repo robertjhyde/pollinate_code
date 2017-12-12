@@ -91,10 +91,10 @@ void loop(){
     second_ring(0);
   }
 }
-  
-  
+
+
 void first_ring(boolean state){ //function to turn on/off the first ring of the sun LEDs
-  if (state == 1) {
+  if (state == 1) { //if input is a 1, turn on
   sun[1] = CRGB::Orange;
   sun[3] = CRGB::Orange;
   sun[6] = CRGB::Orange;
@@ -103,7 +103,7 @@ void first_ring(boolean state){ //function to turn on/off the first ring of the 
   sun[12] = CRGB::Orange;
   sun[13] = CRGB::Orange;
   sun[16] = CRGB::Orange; }
-  if (state == 0) {
+  if (state == 0) { //if input is a 0, turn off
   sun[1] = CRGB::Black;
   sun[3] = CRGB::Black;
   sun[6] = CRGB::Black;
@@ -116,7 +116,7 @@ void first_ring(boolean state){ //function to turn on/off the first ring of the 
 }
   
 void second_ring(boolean state){ //function to turn on/off the second ring of the sun LEDs
-  if (state == 1) {
+  if (state == 1) { //if input is a 1, turn on
   sun[0] = CRGB::Orange;
   sun[4] = CRGB::Orange;
   sun[7] = CRGB::Orange;
@@ -125,7 +125,7 @@ void second_ring(boolean state){ //function to turn on/off the second ring of th
   sun[11] = CRGB::Orange;
   sun[14] = CRGB::Orange;
   sun[15] = CRGB::Orange; }
-  if (state == 0) {
+  if (state == 0) { //if input is a 0, turn off
   sun[0] = CRGB::Black;
   sun[4] = CRGB::Black;
   sun[7] = CRGB::Black;
