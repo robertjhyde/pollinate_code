@@ -1,4 +1,5 @@
-#for overall code logic, see the code section in the portfolio
+## Python code for Raspberry Pi. Threads used to keep track of multiple 'puzzles'. ##
+## Only once all 'puzzles' are completed, the user makes the flower blossom. ##
 
 from time import sleep
 from gpiozero import Button, LED, Servo
