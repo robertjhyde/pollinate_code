@@ -1,3 +1,5 @@
+// C++ Code for Arduino running LED strip lights //
+
 #include <FastLED.h> //import and use the FastLED code library
 int r1 = 0; //a variable to control which rain drop is on at a point in time
 int r2 = 8; //a variable to control the second rain drop that is on at a point in time
